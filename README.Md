@@ -1,19 +1,14 @@
-# ImageCaptionRetrieval
+# Image-Text Matching
 
 ## Description
 
-Pytorch code for training an image-caption retrieval model on the MS-COCO dataset. Based on the paper [ORDER-EMBEDDINGS OF IMAGES AND LANGUAGE](https://arxiv.org/pdf/1511.06361.pdf). The model can be trained with 2 approaches:
-
-* Symmetric Distance(Cosine loss)
-* Ordered Distance
-
-Furthermore, the code is also capable of fine-tuning the model using the VIST dataset.
+Pytorch code for training an image-text matching model on the 3 datasets(trained for now only in "Flickr8k"). Based on the paper [ORDER-EMBEDDINGS OF IMAGES AND LANGUAGE](https://arxiv.org/pdf/1511.06361.pdf). The model can be trained **Triplet loss** OrderEmbedding loss.
 
 ## Details
 
-* Preprocessing(done by prep.py): The first step is to extract out normalized 10-CROP VGG19 features from all the images. These features will be used for all further processing.
+* Preprocessing(done by prep.py): The first step is to read and normalize read features from all the images. These features will be used for all further processing.
 
-* Training(done by train.py): Loads the image-encoder and the sentence-encoder and trains using triplet loss alongwith Cosine Loss or orderEmbedding loss. No negative mining is being done in this code. The hyperparameters have been set according to the Research Paper.
+* Training(done by train.py): Loads the image-encoder and the sentence-encoder and trains the model using Order Embedding loss. No negative mining is being done in this code. The hyperparameters have been set according to the Research Paper.
 
 * Testing(done by eval.py): Finds the mean retrieval rank against the test dataset.
 
