@@ -23,6 +23,9 @@ bar@foo$:~/python3 eval.py
 ```
 
 ## Performance
+Trained for now only with Flickr8k dataset for 10 epochs due to technical limitations. Here is loss value over the steps for 10 epochs. We can easily see that loss function converges and reaches best possible version after training more.
+
+![](https://github.com/KerimKochekov/PMLDL-Project-Image-Text-Matching/blob/main/loss.png)
 
 A mean rank of 400 out of 800 images for a given caption can be easily achieved by training this model on "Flickr8k" dataset (90% training, and 10% validation. Flickr8k has 8k images, thus 800 images in validation).
 
