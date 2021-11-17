@@ -2,7 +2,7 @@
 
 ## Description
 
-Pytorch code for training an image-text matching model on the 3 datasets(trained for now only in "Flickr8k"). Based on the paper [ORDER-EMBEDDINGS OF IMAGES AND LANGUAGE](https://arxiv.org/pdf/1511.06361.pdf). The model can be trained **Triplet loss** OrderEmbedding loss.
+Pytorch code for training an image-text matching model on the 3 datasets(trained for now only in "Flickr8k"). Based on the paper [Order-Embeddings of Images and Language](https://arxiv.org/pdf/1511.06361.pdf). The model can be trained **Triplet loss** OrderEmbedding loss.
 
 ## Details
 
