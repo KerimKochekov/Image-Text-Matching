@@ -41,6 +41,6 @@ Used ready dataset prepared by Karpathy
 * [PyTorch](https://pytorch.org/)
 * [Numpy](https://numpy.org/)
 
-## Author
+## Team
 
 [Kerim Kochekov](https://github.com/KerimKochekov)
