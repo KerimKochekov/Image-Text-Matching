@@ -66,6 +66,9 @@ A mean rank for validation accuracy always smaller than 50%, which shows us imag
 ## Using the model to match on new images and captions
 The code allows you to easily output the embedded vector representation of image and text on trained Flickr8k, Flick30K images and captions. If you want to run the code on arbitrary image and text (e.g. on your file system), things get a little more complicated because we need to first need to pipe your image through the VGG CNN to get the 4096 dimensional activations on top.
 
+## You can find all trained model here
+[Flickr8k(50 epochs) and Flickr30k(10epochs)](https://disk.yandex.com.tr/d/lKpZNl3Zg0DflA)
+
 ## Datasets
 Divided all datasets in form of 90% for training and 10% validation.
 Used ready dataset prepared by Karpathy
