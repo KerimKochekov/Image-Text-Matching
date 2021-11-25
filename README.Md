@@ -14,6 +14,12 @@ Pytorch code for training an image-text matching model on the 3 datasets(trained
 
 Check utils.py for utility function definitions and model.py for encoder architecture.
 
+## Pretrained model for image feature:
+I analyzed 2 different VGG models with different applied techniques for getting the 4096 sized feature vector:
+* The 16-layer [VGG network](http://www.robots.ox.ac.uk/~vgg/research/very_deep/) from Simonyan and Zisserman, because the model is beautiful, powerful and available with [Caffe].
+* The 22-layer VGG model in Keras with pretrained weights [vgg16_weights_tf_dim_ordering_tf_kernels.h5](https://github.com/fchollet/deep-learning-models/releases/download/v0.1/vgg16_weights_tf_dim_ordering_tf_kernels.h5
+)
+
 ## How to Run:
 
 ```bash
