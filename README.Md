@@ -20,6 +20,32 @@ My fundamental hypothesis is if I can get a very precise prediction on image cla
 * The 22-layer VGG model in Keras with pretrained weights [vgg16_weights_tf_dim_ordering_tf_kernels.h5](https://github.com/fchollet/deep-learning-models/releases/download/v0.1/vgg16_weights_tf_dim_ordering_tf_kernels.h5
 )
 
+## Architecture
+The encoder model for image and text uses basic Linear model with GRU, you can view the code of model in Python below:
+```python
+class ImgEncoder(nn.Module):
+	def __init__(self, EMBEDDING_SIZE, COMMON_SIZE):
+		super(ImgEncoder, self).__init__()
+		self.linear = nn.Linear(EMBEDDING_SIZE, COMMON_SIZE)
+
+	def forward(self, x):
+		return self.linear(x).abs()
+
+class SentenceEncoder(nn.Module):
+	def __init__(self, VOCAB_SIZE, WORD_EMBEDDING_SIZE, COMMON_SIZE):
+		super(SentenceEncoder, self).__init__()
+		self.embed = nn.Linear(VOCAB_SIZE, WORD_EMBEDDING_SIZE)
+		self.encoder = nn.GRU(WORD_EMBEDDING_SIZE, COMMON_SIZE)
+
+	def forward(self, x):
+		x = self.embed(x)
+		o, h = self.encoder(x.reshape(x.shape[0], 1, x.shape[1]))
+		return h.reshape(1, -1).abs()
+```
+
+## Achieving main goal with Triplet loss
+My main goal for implementing this project to match images and texts somehow in same embedding space. Since they are different particles that can not be compared easily, so I wanted to apply somehow Cross-Modal retrieval idea to project both of the medias into same spaces. We can easily see that naive idea of turning image into vector space with CNN and turning text into another vectore space with RNN can not be compared. That is why I tried to develop a loss function that can compare bimodal architecture and penalizes each Encoder to encode image and text vector in same space.
+
 ## How to Run:
 
 ```bash
