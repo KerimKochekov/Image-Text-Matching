@@ -15,7 +15,7 @@ Pytorch code for training an image-text matching model on the 3 datasets(trained
 Check utils.py for utility function definitions and model.py for encoder architecture.
 
 ## Pretrained model for image feature:
-I analyzed 2 different VGG models with different applied techniques for getting the 4096 sized feature vector:
+My fundamental hypothesis is if I can get a very precise prediction on image classification, this may imply that we extract most important features about this image, then I can use these features to match with image description. To do that I decided to use VGG pre-trained modesl. Analyzed 2 different VGG models with different applied techniques for getting the 4096 sized feature vector:
 * The 16-layer [VGG network](http://www.robots.ox.ac.uk/~vgg/research/very_deep/) from Simonyan and Zisserman, because the model is beautiful, powerful and available with [Caffe].
 * The 22-layer VGG model in Keras with pretrained weights [vgg16_weights_tf_dim_ordering_tf_kernels.h5](https://github.com/fchollet/deep-learning-models/releases/download/v0.1/vgg16_weights_tf_dim_ordering_tf_kernels.h5
 )
@@ -29,13 +29,19 @@ bar@foo$:~/python3 eval.py
 ```
 
 ## Performance
-Trained for now only with Flickr8k dataset for 10 epochs due to technical limitations. Here is loss value over the steps for 10 epochs. We can easily see that loss function converges and reaches best possible version after training more.
+In first phase trained model on Flickr8k dataset dataset for 10, 30 and 50 epochs respecitevely. The dataset has near 8k images, so it did not take my more than 2 hours to train for 50 epochs. Unlike in second phase trained model on Flickr30k dataset for 10 epochs, which itself took more than one hour of trainin, so I stopped there.
 
-![](https://github.com/KerimKochekov/PMLDL-Project-Image-Text-Matching/blob/main/loss.png)
+We can easily see for both datasets the loss function decreases by the time. Here is the loss function for Flickr30k for 10 epochs.
 
-A mean rank of 400 out of 800 images for a given caption can be easily achieved by training this model on "Flickr8k" dataset (90% training, and 10% validation. Flickr8k has 8k images, thus 800 images in validation).
+![](https://github.com/KerimKochekov/PMLDL-Project-Image-Text-Matching/blob/main/loss_flickr30k.png)
+
+A mean rank for validation accuracy always smaller than 50%, which shows us image can find its belonging caption with probability at least 50%.
+
+## Using the model to match on new images and captions
+The code allows you to easily output the embedded vector representation of image and text on trained Flickr8k, Flick30K images and captions. If you want to run the code on arbitrary image and text (e.g. on your file system), things get a little more complicated because we need to first need to pipe your image through the VGG CNN to get the 4096 dimensional activations on top.
 
 ## Datasets
+Divided all datasets in form of 90% for training and 10% validation.
 Used ready dataset prepared by Karpathy
 * [Flickr8k](https://cs.stanford.edu/people/karpathy/deepimagesent/flickr8k.zip)
 * [Flickr30k](https://cs.stanford.edu/people/karpathy/deepimagesent/flickr30k.zip)
