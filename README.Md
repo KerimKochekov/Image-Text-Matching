@@ -67,20 +67,20 @@ A mean rank for validation accuracy always smaller than 50%, which shows us imag
 The code allows you to easily output the embedded vector representation of image and text on trained Flickr8k, Flick30K images and captions. If you want to run the code on arbitrary image and text (e.g. on your file system), things get a little more complicated because we need to first need to pipe your image through the VGG CNN to get the 4096 dimensional activations on top.
 
 ## You can find my all trained models here
-[Flickr8k(50 epochs) and Flickr30k(10epochs)](https://disk.yandex.com.tr/d/lKpZNl3Zg0DflA)
+[Flickr8k(20 epochs) on new model](https://disk.yandex.com.tr/d/UiaLIzHj1lQtVQ)
 
 ## Datasets
 Divided all datasets in form of 90% for training and 10% validation.
 Used ready dataset prepared by Karpathy
 * [Flickr8k](https://cs.stanford.edu/people/karpathy/deepimagesent/flickr8k.zip)
 * [Flickr30k](https://cs.stanford.edu/people/karpathy/deepimagesent/flickr30k.zip)
-* [COCO](https://cs.stanford.edu/people/karpathy/deepimagesent/coco.zip)
 
 ## Built Using
 
 * [Python3](https://www.python.org)
 * [PyTorch](https://pytorch.org/)
 * [Numpy](https://numpy.org/)
+* [Keras](https://https://keras.io//)
 
 ## Team
 
