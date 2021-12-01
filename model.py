@@ -4,19 +4,19 @@ import torch.nn.functional as F
 import torchvision.models as models
 
 # Image Encoder
-class ImgEncoder(nn.Module):
+class ImageEncoder(nn.Module):
 
 	def __init__(self, EMBEDDING_SIZE, COMMON_SIZE):
-		super(ImgEncoder, self).__init__()
+		super(ImageEncoder, self).__init__()
 		self.linear = nn.Linear(EMBEDDING_SIZE, COMMON_SIZE)
 
 	def forward(self, x):
 		return self.linear(x).abs()
 
-class SentenceEncoder(nn.Module):
+class SentencesEncoder(nn.Module):
 
 	def __init__(self, VOCAB_SIZE, WORD_EMBEDDING_SIZE, COMMON_SIZE):
-		super(SentenceEncoder, self).__init__()
+		super(SentencesEncoder, self).__init__()
 		self.embed = nn.Linear(VOCAB_SIZE, WORD_EMBEDDING_SIZE)
 		self.encoder = nn.GRU(WORD_EMBEDDING_SIZE, COMMON_SIZE)
 
