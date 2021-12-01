@@ -19,6 +19,7 @@ My fundamental hypothesis is if I can get a very precise prediction on image cla
 * The 16-layer [VGG network](http://www.robots.ox.ac.uk/~vgg/research/very_deep/) from Simonyan and Zisserman, because the model is beautiful, powerful, and available with [Caffe].
 * The 22-layer VGG model in Keras with pre-trained weights [vgg16_weights_tf_dim_ordering_tf_kernels.h5](https://github.com/fchollet/deep-learning-models/releases/download/v0.1/vgg16_weights_tf_dim_ordering_tf_kernels.h5
 )
+As result decided to use 2nd approach. Using VGG16 CNN architecture prepared the feature vectors of entire Flickr8k dataset, and uploaded to web, so everyone can freely use it on their projects. [Flickr8k](https://disk.yandex.com.tr/d/d_34QCANTBprsg) 
 
 ## Architecture
 The encoder model for image and text uses a basic Linear model with GRU, you can view the code of the model in Python below:
@@ -55,19 +56,19 @@ bar@foo$:~/python3 eval.py
 ```
 
 ## Performance
-In the first phase trained model on the Flickr8k dataset for 10, 20, and 50 epochs respectively. The dataset has near 8k images, so it did not take me more than 2 hours to train for 50 epochs. Unlike in the second phase trained model on Flickr30k dataset for 10 epochs, which itself took more than one hour of training, so I stopped there.
+In the first phase trained model on the Flickr8k dataset until 80 epochs. The dataset has near 8k images, so it did not take me more than 2 hours to train for 50 epochs. Unlike in the second phase trained model on Flickr30k dataset for 10 epochs, which itself took more than one hour of training, so I stopped there.
 
 We can easily see for both datasets the loss function and rank decrease by the time, so we can say the model doing a good job, which is going to converge in the end. Here is the loss function for Flickr8k after training for 20 epochs.
 
-![](https://github.com/KerimKochekov/PMLDL-Project-Image-Text-Matching/blob/main/loss_flickr8k.png)
-![](https://github.com/KerimKochekov/PMLDL-Project-Image-Text-Matching/blob/main/rank_flickr8k.png)
+![](https://github.com/KerimKochekov/PMLDL-Project-Image-Text-Matching/blob/main/loss_80epochs.png)
+![](https://github.com/KerimKochekov/PMLDL-Project-Image-Text-Matching/blob/main/rank_80epochs.png)
 
 
 ## Using the model to match on new images and captions
 The code allows you to easily output the embedded vector representation of image and text on trained Flickr8k, Flick30K images, and captions. If you want to run the code on arbitrary image and text (e.g. on your file system), things get a little more complicated because we need first need to pipe your image through the VGG CNN to get the 4096-dimensional activations on top.
 
 ## You can find my all trained models here
-[Flickr8k(20 epochs) on new model](https://disk.yandex.com.tr/d/UiaLIzHj1lQtVQ)
+[Flickr8k(80 epochs) on new approach](https://disk.yandex.com.tr/d/w-0xL9DCcRbPQQ)
 
 ## Datasets
 Divided all datasets in form of 90% for training and 10% validation.
