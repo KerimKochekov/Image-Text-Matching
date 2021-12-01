@@ -17,8 +17,8 @@ Check utils.py for utility function definitions and model.py for encoder archite
 ## Pretrained model for image feature:
 My fundamental hypothesis is if I can get a very precise prediction on image classification, this may imply that we extract the most important features about this image, then I can use these features to match with the image description. To do that I decided to use VGG pre-trained models. Analyzed 2 different VGG models with different applied techniques for getting the 4096 sized feature vector:
 * The 16-layer [VGG network](http://www.robots.ox.ac.uk/~vgg/research/very_deep/) from Simonyan and Zisserman, because the model is beautiful, powerful, and available with [Caffe].
-* The 22-layer VGG model in Keras with pre-trained weights [vgg16_weights_tf_dim_ordering_tf_kernels.h5](https://github.com/fchollet/deep-learning-models/releases/download/v0.1/vgg16_weights_tf_dim_ordering_tf_kernels.h5
-)
+* The 22-layer VGG model in Keras with pre-trained weights [vgg16_weights_tf_dim_ordering_tf_kernels.h5](https://github.com/fchollet/deep-learning-models/releases/download/v0.1/vgg16_weights_tf_dim_ordering_tf_kernels.h5)
+
 As result decided to use 2nd approach. Using VGG16 CNN architecture prepared the feature vectors of entire Flickr8k dataset, and uploaded to web, so everyone can freely use it on their projects. [Flickr8k](https://disk.yandex.com.tr/d/lKpZNl3Zg0DflA) 
 
 ## Architecture
