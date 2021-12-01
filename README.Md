@@ -19,7 +19,7 @@ My fundamental hypothesis is if I can get a very precise prediction on image cla
 * The 16-layer [VGG network](http://www.robots.ox.ac.uk/~vgg/research/very_deep/) from Simonyan and Zisserman, because the model is beautiful, powerful, and available with [Caffe].
 * The 22-layer VGG model in Keras with pre-trained weights [vgg16_weights_tf_dim_ordering_tf_kernels.h5](https://github.com/fchollet/deep-learning-models/releases/download/v0.1/vgg16_weights_tf_dim_ordering_tf_kernels.h5)
 
-As result decided to use 2nd approach. Using VGG16 CNN architecture prepared the feature vectors of entire Flickr8k dataset, and uploaded to web, so everyone can freely use it on their projects. [Flickr8k](https://disk.yandex.com.tr/d/lKpZNl3Zg0DflA) 
+As result decided to use 2nd approach. Using VGG16 CNN architecture prepared the feature vectors of entire Flickr8k dataset, and uploaded to web, so everyone can freely use it on their projects[Flickr8k](https://disk.yandex.com.tr/d/lKpZNl3Zg0DflA).
 
 ## Architecture
 The encoder model for image and text uses a basic Linear model with GRU, you can view the code of the model in Python below:
