@@ -61,7 +61,9 @@ In the first phase trained model on the Flickr8k dataset until 80 epochs. The da
 We can easily see for both datasets the loss function and rank decrease by the time, so we can say the model doing a good job, which is going to converge in the end. Here is the loss function for Flickr8k after training for 20 epochs.
 
 ![](https://github.com/KerimKochekov/PMLDL-Project-Image-Text-Matching/blob/main/loss_80epochs.png)
-![](https://github.com/KerimKochekov/PMLDL-Project-Image-Text-Matching/blob/main/rank_80epochs.png)
+Epoch | #20 | #30 | #40 | #50 | #60 | #70 
+--- | --- | --- | --- |--- |--- |--- 
+Rank | 46.448 | 43.47 | 39.032 | 38.27 | 38.551 | 38.238
 
 
 ## Using the model to match on new images and captions
