@@ -1,5 +1,8 @@
 # Image-Text Matching
 
+## Demo Video
+[Deployed to Web](https://www.youtube.com/watch?v=mArAOVAgmYI)
+
 ## Description
 
 Pytorch code for training an image-text matching model on the 3 datasets(trained for now only in "Flickr8k"). Based on the paper [Order-Embeddings of Images and Language](https://arxiv.org/pdf/1511.06361.pdf). The model trained with **Triplet loss** in a Cross-Modal environment and **Adam**.optimizer. The idea of Cross-Modal retrieval comes on representing image and text in the same embedding space, so we can compare two embedded vectors with simple Cosine similarity. My previous approaches on D1.2 and D1.3 were on implementing a merged architecture for image and text with Image captioning, but that did not succeed, so found a new paper(as I mentioned above) and tried to implement the idea below.
