@@ -11,11 +11,11 @@ Previous approaches on D1.2 and D1.3 involved implementing a merged architecture
 
 ## Details
 
-* Preprocessing(done by prep.py): The first step is to read and normalize read features from all the images. These features will be used for all further processing.
+* Preprocessing (done by prep.py): The first step is to read and normalize features from all the images. These features will be used for all further processing.
 
-* Training(done by train.py): Loads the image-encoder and the sentence-encoder and trains the model using Order Embedding loss. No negative mining is being done in this code. The hyperparameters have been set according to the Research Paper.
+* Training (done by train.py): The image-encoder and the sentence-encoder are loaded, and the model is trained using Order Embedding loss. No negative mining is being done in this code. The hyperparameters have been set according to the research paper.
 
-* Testing(done by eval.py): Finds the mean retrieval rank against the test dataset.
+* Testing (done by eval.py): The mean retrieval rank against the test dataset is calculated.
 
 Check utils.py for utility function definitions and model.py for encoder architecture.
 
