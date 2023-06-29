@@ -24,7 +24,7 @@ My fundamental hypothesis is if I can get a very precise prediction on image cla
 * The 16-layer [VGG network](http://www.robots.ox.ac.uk/~vgg/research/very_deep/) from Simonyan and Zisserman, because the model is beautiful, powerful, and available with [Caffe].
 * The 22-layer VGG model in Keras with pre-trained weights [vgg16_weights_tf_dim_ordering_tf_kernels.h5](https://github.com/fchollet/deep-learning-models/releases/download/v0.1/vgg16_weights_tf_dim_ordering_tf_kernels.h5)
 
-As result decided to use 2nd approach. Using VGG16 CNN architecture prepared the feature vectors of entire Flickr8k dataset, and uploaded to web, so everyone can freely use it on their projects[Flickr8k](https://disk.yandex.com.tr/d/lKpZNl3Zg0DflA).
+As result decided to use 2nd approach. Using VGG16 CNN architecture prepared the feature vectors of entire Flickr8k dataset, and uploaded to web, so everyone can freely use it on their projects [Flickr8k](https://disk.yandex.com.tr/d/lKpZNl3Zg0DflA).
 
 ## Architecture
 The encoder model for image and text uses a basic Linear model with GRU, you can view the code of the model in Python below:
@@ -50,7 +50,7 @@ class SentenceEncoder(nn.Module):
 ```
 
 ## Achieving the main goal with Triplet loss
-My main goal for implementing this project is to match images and texts somehow in the same embedding space. Since they are different particles that can not be compared easily, so I wanted to apply somehow Cross-Modal retrieval idea to project both of the media into the same spaces. We can easily see that the naive idea of turning the image into vector space with CNN and turning text into another vector space with RNN can not be compared. That is why I tried to develop a loss function that can compare bimodal architecture and penalize each Encoder to encode images and text vectors in the same space.
+My main goal for implementing this project is to match images and text in the same embedding space. Since they are different modalities that cannot be easily compared, I wanted to apply the idea of Cross-Modal retrieval to project both media into the same space. It is clear that the naive approach of using a CNN to turn the image into a vector space and an RNN to turn the text into another vector space cannot be compared. Therefore, I developed a loss function that can compare the bimodal architecture and penalize each encoder for encoding image and text vectors in different spaces.
 
 ## How to Run:
 
@@ -61,9 +61,9 @@ bar@foo$:~/python3 eval.py
 ```
 
 ## Performance
-In the first phase trained model on the Flickr8k dataset until 80 epochs. The dataset has near 8k images, so it did not take me more than 2 hours to train for 50 epochs. Unlike in the second phase trained model on Flickr30k dataset for 10 epochs, which itself took more than one hour of training, so I stopped there.
+In the first phase, I trained the model on the Flickr8k dataset for 80 epochs. The dataset has nearly 8k images, so it did not take more than 2 hours to train for 50 epochs. In the second phase, I trained the model on the Flickr30k dataset for 10 epochs, which took more than one hour of training, so I stopped there.
 
-We can easily see for both datasets the loss function and rank decrease by the time, so we can say the model doing a good job, which is going to converge in the end. Here is the loss function for Flickr8k after training for 20 epochs.
+For both datasets, we can see that the loss function and rank decrease over time, indicating that the model is performing well and will eventually converge. Here is the loss function for Flickr8k after training for 20 epochs.
 
 ![](https://github.com/KerimKochekov/PMLDL-Project-Image-Text-Matching/blob/main/loss_80epochs.png)
 Epoch | #20 | #30 | #40 | #50 | #60 | #70 
@@ -72,7 +72,7 @@ Rank | 46.448 | 43.47 | 39.032 | 38.27 | 38.551 | 38.238
 
 
 ## Using the model to match on new images and captions
-The code allows you to easily output the embedded vector representation of image and text on trained Flickr8k, Flick30K images, and captions. If you want to run the code on arbitrary image and text (e.g. on your file system), things get a little more complicated because we need first need to pipe your image through the VGG CNN to get the 4096-dimensional activations on top.
+The code allows for easy output of the embedded vector representation of images and text on trained Flickr8k and Flickr30k datasets. However, if you want to run the code on arbitrary images and text (e.g. on your file system), it gets a little more complicated because we first need to pipe your image through the VGG CNN to get the 4096-dimensional activations on top.
 
 ## You can find my all trained models here
 [Flickr8k(80 epochs) on new approach](https://disk.yandex.com.tr/d/w-0xL9DCcRbPQQ)
@@ -83,13 +83,10 @@ Used ready dataset prepared by Karpathy
 * [Flickr8k](https://cs.stanford.edu/people/karpathy/deepimagesent/flickr8k.zip)
 * [Flickr30k](https://cs.stanford.edu/people/karpathy/deepimagesent/flickr30k.zip)
 
-## Built Using
+## Used technologies
 
 * [Python3](https://www.python.org)
 * [PyTorch](https://pytorch.org/)
 * [Numpy](https://numpy.org/)
 * [Keras](https://https://keras.io//)
 
-## Team
-
-[Kerim Kochekov](https://github.com/KerimKochekov)
